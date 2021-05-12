@@ -1,0 +1,133 @@
+body {
+    font-family: system-ui, serif;
+}
+
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.child {
+    flex: 1 1 300px;
+    margin: 0.2em;
+    border: 1px;
+    background: #f1f1f1;
+    font-size: 2rem;
+    text-align: left;
+    padding: 1em;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+
+.child.ayuda {
+    flex: 1 0 300px;
+}
+
+.tabla {
+    text-align: center;
+}
+
+.cascada table {
+    margin: 0 auto;
+    border-spacing: 0em;
+    border-top: 0.5em;
+}
+
+.cascada input {
+    width: 1.2em;
+    height: 1.2em;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 0.3em;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+.cascada input:focus {
+    outline: none;
+}
+
+.ayuda {
+    text-align: center;
+}
+
+.child.ayuda h1 {
+    font-weight: initial;
+    text-align: center;
+}
+
+.child.ayuda button {
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 25px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+
+.child.ayuda button:hover {
+    background-color: #ddd;
+}
+
+.child.ayuda button:active {
+    background-color: #f1f1f1;
+}
+
+.child.ayuda input {
+    margin: 1em;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+
+.child.ayuda textarea {
+    resize: none;
+    height: 10em;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    padding: 12px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 40px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+
+.child.ayuda a {
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 25px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 2px #ccc;
+    -moz-box-shadow: 5px 5px 2px #ccc;
+    -webkit-box-shadow: 5px 5px 2px #ccc;
+    -khtml-box-shadow: 5px 5px 2px #ccc;
+}
+
+.bien {
+    background-color: #73e573;
+}
