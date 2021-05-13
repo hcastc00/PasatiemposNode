@@ -76,11 +76,11 @@ button {
     -khtml-box-shadow: 5px 5px 2px #ccc;
 }
 
-.child.ayuda button:hover {
+button:hover {
     background-color: #ddd;
 }
 
-.child.ayuda button:active {
+button:active {
     background-color: #f1f1f1;
 }
 
