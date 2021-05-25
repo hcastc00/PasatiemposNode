@@ -14,6 +14,12 @@ $(document).ready(function () {
   else initLocalStorage();
   fetchDict();
 
+  $("#pas1").click(clickOpt1);
+
+  $("#pas2").click(clickOpt2);
+
+  $("#pas3").click(clickOpt3);
+
   $("#restart").click(function (e) {
     localStorage.clear();
     location.reload();
@@ -28,7 +34,7 @@ $(document).ready(function () {
         data = data.replace("]", "");
         let resultados = data.split(",");
         for (let i = 0; i < resultados.length; i++) {
-          if (resultados[i] == 'true') {
+          if (resultados[i] == "true") {
             $(".palabra" + i).each(function (i) {
               $(this).addClass("bien");
             });
@@ -70,6 +76,38 @@ $(document).ready(function () {
     }
   });
 });
+
+function clickOpt3() {
+  if (localS) window.localStorage.setItem("option", 3);
+  $("#pas1").html("Pasatiempos 1");
+  $("#pas2").html("Pasatiempos 2");
+  $("#pas3").html("Pasatiempos 3 ✅");
+  $("#definiciones").html(
+    "<strong>1.</strong>Familia en francia.<strong>2.</strong>Tristeza y dolor por algo.<strong>3.</strong>Termino algo definitivamente.<strong>4. </strong>El que torea."
+  );
+}
+
+function clickOpt2() {
+  console.log("CLICK 2");
+  if (localS) window.localStorage.setItem("option", 2);
+  $("#pas1").html("Pasatiempos 1");
+  $("#pas2").html("Pasatiempos 2 ✅");
+  $("#pas3").html("Pasatiempos 3");
+  $("#definiciones").html(
+    "<strong>1.</strong>Familia en Espain.<strong>2.</strong>Tristeza y dolor por algo.<strong>3.</strong>Termino algo definitivamente.<strong>4. </strong>El que torea."
+  );
+}
+
+function clickOpt1() {
+  console.log("111111")
+  if (localS) window.localStorage.setItem("option", 1);
+  $("#pas1").html("Pasatiempos 1 ✅");
+  $("#pas2").html("Pasatiempos 2");
+  $("#pas3").html("Pasatiempos 3");
+  $("#definiciones").html(
+    "<strong>1.</strong>Familia en SUECIA.<strong>2.</strong>Tristeza y dolor por algo.<strong>3.</strong>Termino algo definitivamente.<strong>4. </strong>El que torea."
+  );
+}
 
 //Generar tablero
 function generatecascada() {
@@ -175,9 +213,25 @@ function readPalabras() {
 }
 
 function loadStorage() {
+  console.log("LOADING");
   localS = window.localStorage.getItem("localS");
   palabras = window.localStorage.getItem("palabras").split(",");
   pistas = window.localStorage.getItem("pistas");
+  option = window.localStorage.getItem("option");
+  switch (option) {
+    case "1":
+      clickOpt1();
+      break;
+
+    case "2":
+      clickOpt2();
+      break;
+
+    case "3":
+      clickOpt3();
+      break;
+  }
+
   $("#pistasNum").text("Pistas: " + pistas);
   let casilla = [];
 
