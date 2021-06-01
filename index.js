@@ -7,9 +7,11 @@ application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.json());
 
 application.post("/palabras", function (req, res) {
-  console.log(req.body.palabras); // this outputs: { data: 'hello' }
-  palabras = req.body.palabras.split(',');
-  res.end(JSON.stringify(checkCascada(palabras)));
+  console.log("Option: " + req.body.option);
+  console.log(req.body.palabras);
+  palabras = req.body.palabras.split(",");
+  option = req.body.option;
+  res.end(JSON.stringify(checkCascada(palabras,option)));
 });
 
 application.use(express.static("public"));
@@ -48,14 +50,28 @@ function saveDict(text) {
   diccionario = dict;
 }
 
-function checkCascada(palabras) {
+function checkCascada(palabras, option) {
   var res = new Array(12);
 
-  //primero checkeo las definidas
-  checkPalabaraDefinida(0, "clan");
-  checkPalabaraDefinida(5, "pena");
-  checkPalabaraDefinida(6, "remato");
-  checkPalabaraDefinida(11, "torero");
+  switch (option) {
+    case '1':
+      checkPalabaraDefinida(0, "clan");
+      checkPalabaraDefinida(5, "pena");
+      checkPalabaraDefinida(6, "remato");
+      checkPalabaraDefinida(11, "torero");
+      break;
+
+    case '2':
+      console.log("TEST");
+      checkPalabaraDefinida(0, "pero");
+      checkPalabaraDefinida(5, "paro");
+      checkPalabaraDefinida(6, "suerte");
+      checkPalabaraDefinida(11, "neutro");
+      break;
+
+    case '3':
+      break;
+  }
 
   let posPalabras = [1, 2, 3, 4, 7, 8, 9, 10];
 
@@ -66,9 +82,9 @@ function checkCascada(palabras) {
 
   function checkPalabaraDefinida(num, sol) {
     if (palabras[num] === sol) {
-      res[num] = (true);
+      res[num] = true;
     } else {
-      res[num] = (false);
+      res[num] = false;
     }
   }
 
@@ -77,9 +93,9 @@ function checkCascada(palabras) {
     let palabraAnt = palabras[num - 1];
 
     if (diccionario.includes(palabra) && parvalida(palabra, palabraAnt)) {
-      res[num] = (true);
+      res[num] = true;
     } else {
-      res[num] = (false);
+      res[num] = false;
     }
   }
 
@@ -88,9 +104,9 @@ function checkCascada(palabras) {
     let palabraAnt = palabras[num - 1];
 
     if (diccionario.includes(palabra) && inparValida(palabra, palabraAnt)) {
-      res[num] = (true);
+      res[num] = true;
     } else {
-      res[num] = (false);
+      res[num] = false;
     }
   }
 
