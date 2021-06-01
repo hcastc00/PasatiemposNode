@@ -30,7 +30,7 @@ $(document).ready(function () {
 
   $("#comprobar").click(function (e) {
     $.post(
-      "http://localhost:8080/palabras",
+      "/palabras",
       { palabras: readPalabras().toString(), option: option },
       function (data) {
         data = data.replace("[", "");
