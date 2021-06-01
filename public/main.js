@@ -75,6 +75,21 @@ $(document).ready(function () {
       window.localStorage.setItem("palabras" + option, readPalabras(option));
     }
 
+    switch (option) {
+      case '1':
+        palabras1 = readPalabras(option);
+        break;
+  
+      case '2':
+        palabras2 = readPalabras(option);
+        break;
+  
+      case '3':
+        palabras3 = readPalabras(option);
+        break;
+    }
+
+
     //Moverse hacia delante al escribir
     var index = $(this).index("input");
     $(".letra:eq(" + (index + 1) + ")").focus();

@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const fs = require("fs");
 const fetch = require("node-fetch");
 const application = express();
 
 application.use(bodyParser.urlencoded({ extended: true }));
 application.use(bodyParser.json());
+
+var soluciones = JSON.parse(fs.readFileSync('soluciones.json'));
 
 application.post("/palabras", function (req, res) {
   console.log("Option: " + req.body.option);
@@ -55,21 +58,25 @@ function checkCascada(palabras, option) {
 
   switch (option) {
     case '1':
-      checkPalabaraDefinida(0, "clan");
-      checkPalabaraDefinida(5, "pena");
-      checkPalabaraDefinida(6, "remato");
-      checkPalabaraDefinida(11, "torero");
+      checkPalabaraDefinida(0, soluciones.pasatiempos1.palabra1);
+      checkPalabaraDefinida(5, soluciones.pasatiempos1.palabra2);
+      checkPalabaraDefinida(6, soluciones.pasatiempos1.palabra3);
+      checkPalabaraDefinida(11,soluciones.pasatiempos1.palabra4);
       break;
 
     case '2':
       console.log("TEST");
-      checkPalabaraDefinida(0, "pero");
-      checkPalabaraDefinida(5, "paro");
-      checkPalabaraDefinida(6, "suerte");
-      checkPalabaraDefinida(11, "neutro");
+      checkPalabaraDefinida(0, soluciones.pasatiempos2.palabra1);
+      checkPalabaraDefinida(5, soluciones.pasatiempos2.palabra2);
+      checkPalabaraDefinida(6, soluciones.pasatiempos2.palabra3);
+      checkPalabaraDefinida(11,soluciones.pasatiempos2.palabra4);
       break;
 
     case '3':
+      checkPalabaraDefinida(0, soluciones.pasatiempos3.palabra1);
+      checkPalabaraDefinida(5, soluciones.pasatiempos3.palabra2);
+      checkPalabaraDefinida(6, soluciones.pasatiempos3.palabra3);
+      checkPalabaraDefinida(11,soluciones.pasatiempos3.palabra4);
       break;
   }
 
